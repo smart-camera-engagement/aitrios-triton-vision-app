@@ -1,6 +1,29 @@
 # aitrios-triton-vision-app
 This repository contains an application and UI for Barcode detection (object detection on IMX500) and decoding on the post processing side (on PC) using AITRIOS triton devices. This application can be easily modified to support other use-cases as well as models (Classification, Segmentation, Anamoly etc) on IMX500.
 
+
+## How to build Application?
+
+Step 1: The root directory of the repository contains a "TritonVisionApp.sln" VS solution file. Open the solution file using Visual Studio.
+
+Step 2: Change the target platform to "Release" Mode from Debug Mode. 
+
+Step 3: Open the Properties settings in Visual Studio and set the Platform Toolset, C++ Library Standard version to the specified versions.
+
+Step 4: In the C/C++ -> General -> Additional Include Directories, specify the path to external dependent libraries such as OpenCV (For e.x: C:\opencv\build\include).
+
+Step 5: After including all the necessary libraries, you can build the solution in "Release" mode. This will create the required executable file based on the Release platform in the working directory.
+
+
+```
+Minimum Dependencies:
+Visual Studio, Platform ToolSet (v143 or higher), C++ Library Standard (ISO C++17 Standard or higher), OpenCV library
+```
+
+> [!NOTE]  
+> The application has been tested only using the Release mode as well as platform toolset and C++ library version specified. 
+
+
 ## Setup Mode
 
 The Setup Mode is designed to support functionalities that would be needed to do "one-time" at the site of installation location. The Setup mode can support two main functions:
