@@ -1,9 +1,6 @@
 # aitrios-triton-vision-app
 This repository contains an application and UI for Barcode detection (object detection on IMX500) and decoding on the post processing side (on PC) using AITRIOS triton devices. This application can be easily modified to support other use-cases as well as models (Classification, Segmentation, Anamoly etc) on IMX500.
 
-
-# Operational Modes 
-
 ## Setup Mode
 
 The Setup Mode is designed to support functionalities that would be needed to do "one-time" at the site of installation location. The Setup mode can support two main functions:
@@ -27,7 +24,7 @@ The Inference Mode is designed to support functionalities that would be needed f
 
 ![inference_mode](https://github.com/user-attachments/assets/2d0803a5-1de1-410b-b449-5a8e20e5db9c)
 
-# Barcode Detection on Triton
+## Barcode Detection on Triton
 
 ## AI Model Specifications
 
@@ -61,7 +58,7 @@ Supported Oritentation: Horizontal, Vertical directions (0, 90, 180, 270 degrees
 > [!TIP]
 > It is recommended to crop region of interest for improved pixel density as well as resolution for barcode reading.
 
-# Steps to run Barcode Detection on Triton
+## Steps to run Barcode Detection on Triton
 
 ```
 Step 1: Reorganize the windows in the UI based on your monitor resolution. This needs to be done only once and the positions of the windows are automatically saved when the application is closed for next time.
