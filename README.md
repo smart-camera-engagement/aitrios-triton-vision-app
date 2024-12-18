@@ -34,6 +34,7 @@ Input Size: 256x256x3
 Classes supported: Barcode only
 Default Detection Threshold: 0.50
 ```
+Link to AI model: https://github.com/smart-camera-engagement/imx500_dnn_models/tree/master/models/triton/barcode_detection/only_barcode-imx500
 
 > [!NOTE]  
 > The AI model was trained on a small dataset comprising of small-sized cardboard boxes (brown and white). 
