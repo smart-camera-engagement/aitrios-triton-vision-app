@@ -1,0 +1,58 @@
+{
+    "DetectionThreshold": 0.5500000715255737,
+    "NumOfPattern": 1,
+    "PatternList": [
+        {
+            "PatternName": "Barcode Reading using Triton Camera",
+            "NumOfRoi": 1,
+            "RoiList": [
+                {
+                    "ID": 0,
+                    "Offset_x": 574,
+                    "Offset_y": 1142,
+                    "Width": 1612,
+                    "Height": 1121
+                }
+            ]
+        },
+        {
+            "PatternName": "Top Upper",
+            "NumOfRoi": 1,
+            "RoiList": [
+                {
+                    "ID": 0,
+                    "Offset_x": 151,
+                    "Offset_y": 278,
+                    "Width": 1346,
+                    "Height": 1189
+                }
+            ]
+        },
+        {
+            "PatternName": "Bottom Lower",
+            "NumOfRoi": 1,
+            "RoiList": [
+                {
+                    "ID": 0,
+                    "Offset_x": 565,
+                    "Offset_y": 404,
+                    "Width": 551,
+                    "Height": 300
+                }
+            ]
+        },
+        {
+            "PatternName": "Bottom Upper",
+            "NumOfRoi": 1,
+            "RoiList": [
+                {
+                    "ID": 0,
+                    "Offset_x": 991,
+                    "Offset_y": 680,
+                    "Width": 551,
+                    "Height": 300
+                }
+            ]
+        }
+    ]
+}
