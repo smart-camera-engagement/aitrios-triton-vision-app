@@ -11,6 +11,8 @@ The Setup Mode is designed to support functionalities that would be needed to do
 1. Specify Region of Interest (RoI) to Crop for Input Tensor
 2. Capture Images from Triton camera for the purposes of AI model training/re-training.
 
+![setup_mode](https://github.com/user-attachments/assets/d5f291fc-b9d4-42b5-a64b-e55decc30f54)
+
 ## Inference Mode
 
 The Inference Mode is designed to support functionalities that would be needed for final use-case and is the "operational mode" running the AI model and the post processing application. The Inference mode can support the following functions:
@@ -23,27 +25,64 @@ The Inference Mode is designed to support functionalities that would be needed f
 6. The current frame rate is displayed to the window. During Setup mode, because we stream the full 12MP image, the frame rate will be less than 10fps. Depending on the size of ROI, it is possible to achieve ~20fps in the inference mode.
 7. The "Last Seen" decoded barcode is shown as a seperate window. If there are more than one barcode in the input tensor, the last seen value will randomly pick one of the decoded barcodes for the purposes of display.
 
+![inference_mode](https://github.com/user-attachments/assets/2d0803a5-1de1-410b-b449-5a8e20e5db9c)
+
 # Barcode Detection on Triton
 
 ## AI Model Specifications
 
-*Type: Object Detection using Neurala's Brain Builder
-*Input Size: 256x256x3
-*Classes supported: Barcode only
-*Default Detection Threshold: 0.50
+```
+Type: Object Detection using Neurala's Brain Builder
+Input Size: 256x256x3
+Classes supported: Barcode only
+Default Detection Threshold: 0.50
+```
 
-The AI model was trained on a small dataset comprising of small-sized cardboard boxes (brown and white). It is recommended to re-train the AI model with dataset representing the final use-case for the optimal performance.
+> [!NOTE]  
+> The AI model was trained on a small dataset comprising of small-sized cardboard boxes (brown and white). 
+
+> [!TIP]
+> It is recommended to re-train the AI model with dataset representing the final use-case for the optimal performance.
+
 
 ## Post-Processing Application
 
-*Where: Post processing is done on PC side.
-*Type: Standalone C++ port of ZXing Library 
-*Supported Barcode Type: EAN13/ UPC-A
-*Supported Oritentation: Horizontal, Vertical directions (0, 90, 180, 270 degrees)
+```
+Where: Post processing is done on PC side.
+Type: Standalone C++ port of ZXing Library
+Supported Barcode Type: EAN13/ UPC-A
+Supported Oritentation: Horizontal, Vertical directions (0, 90, 180, 270 degrees)
+```
 
-Note: Only EAN13/ UPC-A type barcodes is currently supported. It is easy to support other types of barcodes easily using this application. Please refer to the EAN13 decoder for reference. Only horizontal & vertical type barcode is supported. If further orientations are needed, please adjust the rotation angle parameter in the post processing script for improved performance.
+> [!WARNING]  
+> Only EAN13/ UPC-A type barcodes is currently supported. It is easy to support other types of barcodes easily using this application. Please refer to the EAN13 decoder for reference.
+> Only horizontal & vertical type barcode is supported. If further orientations are needed, please adjust the rotation angle parameter in the post processing script for improved performance.
+
+> [!TIP]
+> It is recommended to crop region of interest for improved pixel density as well as resolution for barcode reading.
 
 # Steps to run Barcode Detection on Triton
+
+```
+Step 1: Reorganize the windows in the UI based on your monitor resolution. This needs to be done only once and the positions of the windows are automatically saved when the application is closed for next time.
+
+Step 2: Click the "Image Stream" start button to start Triton Camera.
+
+Step 3: Click the "Setup" Tab button to see the Region of Interest.
+
+Step 4: Once in the setup mode, you can specify the Region of Interest by dragging and adjusting the bounding box shown in the window using the mouse cursor. Alternatively, you can also use the cursors for position adjusting.
+
+Step 5 [Optional]: You can capture images in the setup mode using the "Capture" Button. This will save the images in ".png" format and can later be used for the purposes of re-training the AI model.
+
+Step 6: After finishing the ROI specification, you can go to the "Detector" Tab. Adjust the Threshold if needed for the object detection. Click "Run" to update the threshold parameter for the AI model and verify if you can obtain a sample input and output tensor as expected. 
+
+Step 7: If you are satisfied with the "Detections" shown for a sample input tensor. You can click the "Start" button in the Inference Control panel to begin the application. The detected and decoded barcode will be displayed to the output Image view window.
+ 
+```
+
+> [!NOTE]  
+> A red box in the "Image View" window indicates that a barcode is successfully detected (on IMX500) but not decoded by post processing application.
+> A green box indicates successful detection and decoding.
 
 
 
