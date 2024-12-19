@@ -1,7 +1,6 @@
 # aitrios-triton-vision-app
 This repository contains an application and UI for Barcode detection (object detection on IMX500) and decoding on the post processing side (on PC) using AITRIOS triton devices. This application can be easily modified to support other use-cases as well as models (Classification, Segmentation, Anamoly etc) on IMX500.
 
-
 ## How to build Application?
 
 Step 1: The root directory of the repository contains a "TritonVisionApp.sln" VS solution file. Open the solution file using Visual Studio.
@@ -64,6 +63,10 @@ Link to AI model: https://github.com/smart-camera-engagement/imx500_dnn_models/t
 
 > [!TIP]
 > It is recommended to re-train the AI model with dataset representing the final use-case for the optimal performance.
+
+## How to deploy the AI model to Triton Camera
+
+You can use the "LucidConvertTool2.exe" available with the Lucid's software release to deploy the AI model to the Triton Camera. For more details, please see the ReadMe file included with Lucid's Software release.
 
 
 ## Post-Processing Application
